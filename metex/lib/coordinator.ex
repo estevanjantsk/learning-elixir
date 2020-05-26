@@ -5,7 +5,7 @@ defmodule Metex.Coordinator do
         new_results = [result | results]
 
         if results_expected == Enum.count(new_results) do
-          send(self, :exit)
+          send(self(), :exit)
         end
 
         loop(new_results, results_expected)
